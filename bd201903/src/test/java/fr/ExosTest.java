@@ -7,7 +7,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.Scanner;
 
 import org.junit.After;
@@ -37,8 +36,8 @@ class ExosTest {
 		/**
 		 * GIVEN
 		 */
-		String input = "input"+numFichierTest+".txt";
-		String output = "output"+numFichierTest+".txt";
+		String input = "exo1/input"+numFichierTest+".txt";
+		String output = "exo1/output"+numFichierTest+".txt";
 		
 		// Tell Java to use your special stream
 		System.setOut(ps);
@@ -46,7 +45,7 @@ class ExosTest {
 		/**
 		 * WHEN
 		 */
-		Exo1.main(input);
+		Exos.exo1(input);
 		
 		/**
 		 * THEN
@@ -54,6 +53,76 @@ class ExosTest {
 		comparerResultatEtFichierDeReponses(output);
 	}
 
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2, 3, 4, 5})
+	void testExo2(int numFichierTest) throws FileNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
+		/**
+		 * GIVEN
+		 */
+		String input = "exo2/input"+numFichierTest+".txt";
+		String output = "exo2/output"+numFichierTest+".txt";
+		
+		// Tell Java to use your special stream
+		System.setOut(ps);
+		
+		/**
+		 * WHEN
+		 */
+		Exos.exo2(input);
+		
+		/**
+		 * THEN
+		 */
+		comparerResultatEtFichierDeReponses(output);
+	}
+	
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2, 3})
+	void testExo3(int numFichierTest) throws FileNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
+		/**
+		 * GIVEN
+		 */
+		String input = "exo3/input"+numFichierTest+".txt";
+		String output = "exo3/output"+numFichierTest+".txt";
+		
+		// Tell Java to use your special stream
+		System.setOut(ps);
+		
+		/**
+		 * WHEN
+		 */
+		Exos.exo3(input);
+		
+		/**
+		 * THEN
+		 */
+		comparerResultatEtFichierDeReponses(output);
+	}
+	
+	
+	@ParameterizedTest
+	@ValueSource(ints = {1, 2, 3, 4, 5})
+	void testExo4(int numFichierTest) throws FileNotFoundException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
+		/**
+		 * GIVEN
+		 */
+		String input = "exo4/input"+numFichierTest+".txt";
+		String output = "exo4/output"+numFichierTest+".txt";
+		
+		// Tell Java to use your special stream
+		System.setOut(ps);
+		
+		/**
+		 * WHEN
+		 */
+		Exos.exo4(input);
+		
+		/**
+		 * THEN
+		 */
+		comparerResultatEtFichierDeReponses(output);
+	}
+	
 	
 	private void comparerResultatEtFichierDeReponses(String nomFichierSortie) throws FileNotFoundException {
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
